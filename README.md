@@ -4,4 +4,4 @@ DevDoodle is a programmers' network where you can do tutorials, ask questions, a
 
 You can visit [here](http://devdoodle.net).
 
-This repository is where public files will be kept and discussed.
+This repository is where public files will be kept and discussed. Feel free to fork and pull req!
