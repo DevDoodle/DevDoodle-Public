@@ -11,4 +11,11 @@
 - http://codepen.io
 - http://jsfiddle.net
 - http://caniuse.com
-- http://www.w3.org/Style/CSS/
+- http://w3.org/Style/CSS/
+
+# Server-side
+
+- http://nodejs.org
+- https://npmjs.org ([ws](https://npmjs.org/package/ws), [cookie](https://npmjs.org/package/cookie), [nodemailer](https://npmjs.org/package/nodemailer), [mongodb](https://npmjs.org/package/mongodb))
+- http://mongodb.org
+- https://mongodb.github.io/node-mongodb-native/
