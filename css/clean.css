@@ -1,14 +1,17 @@
-html { background: linear-gradient(rgba(20, 20, 20, .85), rgba(20, 20, 20, .85)), url('/a/background.png') no-repeat left center fixed }
+html { background: #000 }
 body {
 	font-family: helvetica, sans-serif;
 	-webkit-text-size-adjust: none;
 	tab-size: 4;
 	line-height: 1.2;
+	color: #eee;
 }
 * {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
 }
 ::-webkit-input-placeholder {
 	color: #555;
@@ -17,12 +20,12 @@ body {
 }
 @keyframes target {
 	0%, 30% {
-		background: #f70;
+		background: #fc0;
 	}
 }
 @-webkit-keyframes target {
 	0%, 30% {
-		background: #f70;
+		background: #fc0;
 	}
 }
 :not(.target):target {
@@ -49,25 +52,23 @@ body {
 .bmar, .error, .half, #content, aside.rit, #notifs li { margin-bottom: 6px }
 .lftpad, .user { margin-left: 6px }
 .indt { margin-left: 32px }
-.pad, .notice, a.center-text.blk, .desc, #content, #sidebar, #footer, .error, .popup, code.blk, .comment, aside.rit { padding: 4px }
+.pad, a.center-text.blk, .desc, #content, #sidebar, #footer, .error, .popup, code.blk, .comment, aside.rit { padding: 4px }
 .noborder, iframe { border: none }
 .scrl { overflow: auto }
 .scrlx { overflow-x: auto }
 .scrly, #sidebar { overflow-y: auto }
-.noscrl { overflow: hidden }
 .br, .desc, aside.rit { border-radius: 4px }
-.hglt, .desc, .comment, section, article { background: rgba(255, 255, 255, .4) }
-.shglt, #content, #sidebar, #footer { background: rgba(255, 255, 255, .8) }
-code, iframe:not([seamless]) { background: #fff }
-code { padding: 2px; }
+.hglt, .desc, .comment, section, article { background: #333 }
+.shglt { background: #444 }
+iframe:not([seamless]) { background: #fff }
 .mono, .ctrls { font-family: monospace }
 .ctrls a { padding: 0 2px }
-.grey, a.small, .c-sig, .ctrls a { color: #444 }
-.disabled, a.disabled:hover, a.disabled:active { color: #999 }
-small, a.small, a.grey, .c-sig > *, .c-sig, .ctrls a, footer, #nav a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .user a, .c-sig a, .ctrls a { text-decoration: none }
-small, a.small, footer, .c-sig, .ctrls a { font-size: .85em }
+.grey, a.small, .c-sig, .ctrls a { color: #aaa }
+.disabled, a.disabled:hover, a.disabled:active { color: #666 }
 abbr { border-bottom: 1px dashed #222 }
 .reference { color: #080 }
+small, a.small, a.grey, .c-sig > *, .c-sig, .ctrls a, footer, #nav a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .user a, .c-sig a, .ctrls a { text-decoration: none }
+small, a.small, footer, .c-sig, .ctrls a { font-size: .85em }
 .red { color: #f00 }
 .large { font-size: 1.2em }
 .larger, .ctrls { font-size: 1.4em }
@@ -79,6 +80,11 @@ abbr { border-bottom: 1px dashed #222 }
 	position: absolute;
 	color: #aaa;
 	transition: opacity 0.2s;
+}
+code {
+	padding: 2px;
+	color: #fff;
+	background: #333;
 }
 .ctrls {
 	top: 100%; right: -1px;
@@ -99,15 +105,15 @@ abbr { border-bottom: 1px dashed #222 }
 .comment:not(:hover) .sctrls svg:not(.clkd) { opacity: .4 }
 .comment img { max-height: 200px }
 .c-sig { padding-left: 4px }
-.c-sig > * { color: #666 }
-.ctrls :hover, .diamond { color: #000 }
+.c-sig, .c-sig > * { color: #ccc }
+.ctrls :hover { color: #000 }
 .ctrls :first-child.clkd { text-shadow: 1px 1px 1px #000; color: #e80 }
 .ctrls :nth-child(2):not(:last-child).clkd { color: #0e0 }
 .ctrls :last-child { font-size: 0.9em }
 input[type=text].large, input[type=search].large, input[type=password].large { font-size: 1.3em }
 .comment > pre, .comment > blockquote, .comment > p { margin-bottom: 0 }
 blockquote {
-	border-left: 2px solid #f90;
+	border-left: 2px solid #fa0;
 	padding: 4px;
 	margin-top: 6px;
 	margin-bottom: 6px;
@@ -193,17 +199,17 @@ fieldset {
 }
 @media (min-width: 900px) {
 	.program { max-width: 33% }
-	.program:nth-child(-n+10), .lim-programs .program:nth-child(4) { display: inline-block }
+	.program:nth-child(-n+10) { display: inline-block }
 }
 @media (min-width: 1300px) {
 	.program { max-width: calc(25% - 4px) }
 	.program div { height: 20vw }
-	.program:nth-child(-n+13), .lim-programs .program:nth-child(5) { display: inline-block }
+	.program:nth-child(-n+13) { display: inline-block }
 }
 @media (min-width: 1700px) {
 	.program { max-width: calc(20% - 4px) }
 	.program div { height: 16vw }
-	.program:nth-child(-n+16), .lim-programs .program:nth-child(6) { display: inline-block }
+	.program:nth-child(-n+16) { display: inline-block }
 }
 .comment { margin-top: 3px }
 .comment #up, .comment #dn { width: 18px }
@@ -223,8 +229,7 @@ ul, ol, p { margin: 6px 0 2px 0 }
 	background: #f00;
 	color: #fff;
 }
-.notice { background: #ff0 }
-#err a { color: #fff }
+#err a, .diamond { color: #fff }
 #err > * {
 	display: block;
 	text-align: center;
@@ -239,6 +244,7 @@ ul, ol, p { margin: 6px 0 2px 0 }
 	clear: both;
 }
 h1, h2, h3, h4, h5, h6 {
+	color: #fff;
 	margin-top: .2em; margin-bottom: .2em;
 	font-family: Tahoma, Helvetica;
 }
@@ -246,35 +252,34 @@ h1:not(.title), h2:not(.title), h3:not(.title), h4:not(.title), h5:not(.title), 
 	font-weight: normal;
 	font-family: Verdana;
 }
-h1, aside h2, h2.underline { border-bottom: 1px solid #aaa }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit }
 h1 {
+	border-bottom: 1px solid #aaa;
 	font-size: 1.5em;
 	line-height: 1;
 	padding-bottom: 1px;
 	vertical-align: bottom;
 }
 .comment h1, hr { border-bottom: none }
-.title { border: none }
 h2, h1.title, article h1 { font-size: 1.3em }
 h3, h2.title, article h2, article article h1 {
 	margin-top: .5em;
 	font-size: 1.1em;
 }
 a, .ctrl {
-	color: #000;
+	color: #fff;
 	transition: color .1s;
 	cursor: pointer;
 }
-a:visited { color: #444 }
-a:hover, .ctrl:hover { color: #15f }
-a:active, .ctrl:active { color: #02d }
-a.blk {
-	color: #000;
-	font-weight: bold;
-}
-a.blk:hover, a.blk:active { background: rgba(255, 255, 255, .2) }
-a.blk:active { color: #00f }
+a:visited { color: #ccc; }
+a:hover, .ctrl:hover { color: #4ee }
+a:active, .ctrl:active { color: #faa }
+.user a { color: #000 }
+.user a:hover { color: #15f }
+.user a:active { color: #02d }
+a.blk { font-weight: bold }
+a.blk:hover, a.blk:active { background: #222 }
+a.blk:hover:not(:active) { color: #ff2 }
 input[type=text], input[type=search], input[type=password], textarea {
 	font-family: helvetica;
 	font-size: .8em;
@@ -356,17 +361,12 @@ textarea {
 	width: 160px;
 	max-width: 100%;
 	color: #000;
-	font-size: 16px;
-}
-#nav input::-webkit-search-results-decoration { display: none }
-@media screen and(-webkit-min-device-pixel-ratio: 0) { /* Safari only */
-	#nav input::-webkit-search-results-decoration { display: block }
 }
 #logo img {
 	max-height: 100%;
 	padding: 4px 6px;
 }
-#content { padding-bottom: 24px }
+#content { padding-bottom: 4px }
 #nav > .active { position: relative }
 #nav .unread:not(.active) {
 	background: #d00;
@@ -437,7 +437,7 @@ aside.rit { background: rgba(255, 255, 100, 0.5) }
 		margin-left: 6px;
 	}
 }
-@media (min-width: 380px) and (max-width: 1499px) {
+@media (min-width: 380px) {
 	#nav {
 		padding: 0;
 		text-align: right;
@@ -495,7 +495,7 @@ aside.rit { background: rgba(255, 255, 100, 0.5) }
 	}
 	#logo img { padding-bottom: 4px }
 }
-@media (min-width: 800px) and (max-width: 1499px) {
+@media (min-width: 800px) {
 	#cont { margin: 0 auto }
 	#logo { height: 2rem }
 	#nav > :nth-child(-n+5) { float: left }
@@ -512,65 +512,13 @@ aside.rit { background: rgba(255, 255, 100, 0.5) }
 	#nav :not(:hover) + nav:not(:hover) { display: none }
 }
 @media (min-width: 1500px) {
-	html { background-size: cover }
-	#cont { overflow: hidden }
-	#content, #footer { margin: 6px 0 6px calc(4% + 150px) }
 	#content:nth-child(2):nth-last-child(3) {
 		float: left;
-		width: calc(-250px + 80%);
+		width: calc(-94px + 84%);
 	}
 	#sidebar {
 		float: right;
 		width: calc(88px + 16%);
 		margin: 6px 6px 6px 0;
 	}
-	#nav {
-		position: absolute;
-		display: table;
-		left: 0;
-		width: calc(4% + 144px); height: 200px;
-		text-align: left;
-		background: #161616;
-	}
-	#nav > :nth-child(7) { margin-top: 16px }
-	#nav > *, #nav nav > *, #nav form {
-		width: 100%;
-		padding-right: 24px;
-	}
-	#nav > :not(nav)::after {
-		position: absolute;
-		right: .5em;
-		content: '\276F';
-		color: #999;
-	}
-	#logo { height: 2rem }
-	#nav input { width: 100% }
-	#nav > .active::before {
-		content: '';
-		position: absolute;
-		top: 3px; bottom: 3px; left: 5px;
-		width: 3px;
-		background: #777;
-	}
-	#nav > :not(#logo):not(nav) {
-		position: relative;
-		padding-left: 16px;
-	}
-	#nav > .active + nav { background: #000 }
-	#nav nav {
-		padding-left: 32px;
-		background: #161616;
-	}
-	#nav nav a {
-		display: block;
-		line-height: 2rem;
-		height: 2rem;
-	}
-	#nav nav a::before {
-		content: '＞ ';
-		color: #aaa;
-	}
-}
-@media (min-width: 1500px) and (min-height: 500px) {
-	#nav { position: fixed }
 }

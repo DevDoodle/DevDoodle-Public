@@ -20,6 +20,6 @@
 - http://mongodb.org
 - https://mongodb.github.io/node-mongodb-native/
 
-# Used repos
+[Markdown-HTML sub-project](https://github.com/bjb568/Markdown-HTML)
 
-- https://github.com/bjb568/Markdown-HTML
+Logo font: [Deja Vu Sans](http://dejavu-fonts.org/wiki/Main_Page)
