@@ -39,6 +39,7 @@ var none = 'transparent', trans = none,
 	height = 400,
 	scale = canvas.width / canvas.offsetWidth;
 addEventListener('resize', function() {
+	if (enabledFullScreen) canvas.style.zoom = 100 / devicePixelRatio + '%';
 	scale = canvas.width / canvas.offsetWidth;
 	if (enabledFullScreen) {
 		size();
@@ -55,6 +56,7 @@ Number.prototype.bound = function(l, h) {
 };
 function requestFullLayoutMode() {
 	enabledFullScreen = requestEnableFullScreen = true;
+	canvas.style.zoom = 100 / devicePixelRatio + '%';
 	document.getElementById('console').style.height = 'auto';
 	document.getElementById('console').style.maxHeight = '240px';
 	size();
@@ -104,6 +106,27 @@ function line(x1, y1, x2, y2) {
 	ctx.lineTo(x2, y2);
 	ctx.stroke();
 }
+function curve(x1, y1, x2, y2, x3, y3, x4, y4) {
+	ctx.lineCap = 'round';
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	if (x4 !== undefined && y4 !== undefined) ctx.bezierCurveTo(x2, y2, x3, y3, x4, y4);
+	else if (x3 !== undefined && y3 !== undefined) ctx.bezierCurveTo(x2, y2, x2, y2, x3, y3);
+	else ctx.lineTo(x2, y2);
+	ctx.stroke();
+}
+function bcurve(x1, y1, x2, y2, x3, y3, x4, y4) {
+	curve(
+		x2,
+		y2,
+		x2 * 5/4 - x3/4,
+		y2 * 5/4 - y3/4,
+		x1,
+		y1,
+		x1,
+		y1
+	);
+}
 function rect(x, y, w, h) {
 	ctx.fillRect(x, y, w, h);
 	ctx.strokeRect(x, y, w, h);
@@ -149,8 +172,8 @@ function bg() {
 }
 function size(x, y) {
 	if (enabledFullScreen) {
-		x = innerWidth;
-		y = innerHeight - document.getElementById('console').offsetHeight - 32;
+		x = innerWidth * devicePixelRatio;
+		y = (innerHeight - document.getElementById('console').offsetHeight - 32) * devicePixelRatio;
 	}
 	canvas.width = width = x;
 	canvas.height = height = y;
@@ -209,6 +232,10 @@ if (navigator.userAgent.indexOf('Mobile') == -1) {
 		var cRect = canvas.getBoundingClientRect();
 		mouseX = (e.clientX - Math.round(cRect.left)) / cRect.width * width;
 		mouseY = (e.clientY - Math.round(cRect.top)) / cRect.height * height;
+		if (enabledFullScreen) {
+			mouseX *= devicePixelRatio;
+			mouseY *= devicePixelRatio;
+		}
 		mouseX = mouseX.bound(0, width);
 		mouseY = mouseY.bound(0, height);
 	});
