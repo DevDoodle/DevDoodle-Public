@@ -16,7 +16,7 @@
 # Server-side
 
 - http://nodejs.org
-- https://npmjs.org ([ws](https://npmjs.org/package/ws), [cookie](https://npmjs.org/package/cookie), [nodemailer](https://npmjs.org/package/nodemailer), [mongodb](https://npmjs.org/package/mongodb))
+- https://npmjs.org
 - http://mongodb.org
 - https://mongodb.github.io/node-mongodb-native/
 
